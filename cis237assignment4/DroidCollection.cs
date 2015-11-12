@@ -140,22 +140,25 @@ namespace cis237assignment4
            
             foreach (Droid droid in droidCollection)
             {
-                switch (droid.GetModel())
+                if (droid != null)
                 {
-                    case "PROTOCOL":
-                        protocolStack.Push(droid);
-                        break;
-                    case "UTILITY":
-                        utilityStack.Push(droid);
-                        break;
-                    case "JANITOR":
-                        janitorStack.Push(droid);
-                        break;
-                    case "ASTROMECH":
-                        astromechStack.Push(droid);
-                        break;
-                    default:
-                        break;
+                    switch (droid.GetModel())
+                    {
+                        case "Protocol":
+                            protocolStack.Push(droid);
+                            break;
+                        case "Utility":
+                            utilityStack.Push(droid);
+                            break;
+                        case "Janitor":
+                            janitorStack.Push(droid);
+                            break;
+                        case "Astromech":
+                            astromechStack.Push(droid);
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
 
@@ -190,7 +193,10 @@ namespace cis237assignment4
             //Get the total cost for each droid
             foreach (Droid droid in droidCollection)
             {
-                droid.CalculateTotalCost();
+                if (droid != null)
+                {
+                    droid.CalculateTotalCost();
+                }
             }
 
             //Sort the array by cost

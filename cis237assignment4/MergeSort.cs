@@ -10,7 +10,7 @@ namespace cis237assignment4
     {
         //Declare a comparable array
         private static IComparable[] compareArray;
-        
+
         //Create array and begin the sort process
         public static void MergeSortArray(IComparable[] array)
         {
@@ -52,12 +52,6 @@ namespace cis237assignment4
             //Copy the array to comparable array
             for (int k = lowVal; k <= highVal; k++)
             {
-                compareArray[k] = array[k];
-            }
-
-            //Merge back into one array
-            for (int k = lowVal; k <= highVal; k++)
-            {
                 if (i > midVal)
                 {   //End of first subarray
                     array[k] = compareArray[j++];
@@ -66,15 +60,28 @@ namespace cis237assignment4
                 {   //End of second subarray
                     array[k] = compareArray[i++];
                 }
-                else if (compareArray[j].CompareTo(compareArray[i]) < 0)
-                {
-                    //Insert item from 2nd half when it is less than item in 1st half
-                    array[k] = compareArray[j++];
-                }
                 else
                 {
-                    //Insert item from 1st half when it is less or equal to than item in 2nd half
-                    array[k] = compareArray[i++];
+                    if (compareArray[j] == null || compareArray[i] == null)
+                    {   //Checks to see
+                        array[k] = compareArray[i];
+                        i++;
+                    }
+                    else
+                    {
+                        if (compareArray[j].CompareTo(compareArray[i]) < 0)
+                        {
+                            //Insert item from 2nd half when it is less than item in 1st half
+                            array[k] = compareArray[j];
+                            j++;
+                        }
+                        else
+                        {
+                            //Insert item from 1st half when it is less or equal to than item in 2nd half
+                            array[k] = compareArray[i];
+                            i++;
+                        }
+                    }
                 }
             }
         }

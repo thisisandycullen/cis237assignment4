@@ -8,12 +8,12 @@ namespace cis237assignment4
 {
     class GenericStack<T>
     {
-        private GenericNode<T> node;
+        private GenericNode<T> startNode;
 
         //Check if stack is empty
         public Boolean IsNotEmpty()
         {
-            if (node == null)
+            if (startNode == null)
             {
                 return false;
             }
@@ -27,24 +27,24 @@ namespace cis237assignment4
         public void Push(T item)
         {
             //Set previous node
-            GenericNode<T> previousNode = node;
+            GenericNode<T> previousNode = startNode;
 
             //Assign a new node/item
-            node = new GenericNode<T>();
-            node.item = item;
+            startNode = new GenericNode<T>();
+            startNode.item = item;
 
             //Set a reference to previous node
-            node.next = previousNode;
+            startNode.next = previousNode;
         }
 
         //Take item from stack
         public T Pop()
         {
             //Set a generic item to the item on stack
-            T item = node.item;
+            T item = startNode.item;
 
             //Set next node
-            node = node.next;
+            startNode = startNode.next;
 
             //Get the item
             return item;

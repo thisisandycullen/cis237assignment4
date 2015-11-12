@@ -138,7 +138,7 @@ namespace cis237assignment4
 
         private void PrintDroid(int i)
         {
-            Console.WriteLine("******************************" + Environment.NewLine);
+            Console.WriteLine("******************************");
             Console.WriteLine(DroidCollection.droidArray[i].ToString());
             Console.Write("Total Cost: ");
             Console.WriteLine(DroidCollection.droidArray[i].TotalCost.ToString("N") + " Credits");

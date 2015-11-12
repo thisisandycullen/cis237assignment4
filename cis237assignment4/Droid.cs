@@ -32,6 +32,11 @@ namespace cis237assignment4
             this.color = Color;
         }
 
+        public string GetModel()
+        {
+            return this.model;
+        }
+
         //Virtual method that can be overridden in the derived classes if needed.
         //This implementation calculates the cost based on the material used for the droid
         protected virtual void CalculateBaseCost()
@@ -62,9 +67,18 @@ namespace cis237assignment4
         //Overriden toString method that will return a string representing the basic information for any droid
         public override string ToString()
         {
-            return "Material: " + this.material + Environment.NewLine +
-                    "Model: " + this.model + Environment.NewLine +
-                    "Color: " + this.color + Environment.NewLine;
+            return "Model: " + this.model + Environment.NewLine +
+                   "Material: " + this.material + Environment.NewLine +
+                   "Color: " + this.color + Environment.NewLine;
+        }
+
+ 
+        public int CompareTo(Object obj)
+        {
+            Droid otherDroid = (Droid)obj;
+            decimal thisDroidCost = this.TotalCost;
+            decimal otherDroidCost = otherDroid.TotalCost;
+            return thisDroidCost.CompareTo(otherDroidCost);
         }
     }
 }

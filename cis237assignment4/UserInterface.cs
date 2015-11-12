@@ -30,7 +30,9 @@ namespace cis237assignment4
         {
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("1. Add a new droid to the system");
-            Console.WriteLine("2. Print the list of droids out");
+            Console.WriteLine("2. Show the droid list");
+            Console.WriteLine("3. Sort droids by model");
+            Console.WriteLine("4. Sort droids by price");
             Console.WriteLine("3. Exit the program");
         }
 
@@ -103,7 +105,7 @@ namespace cis237assignment4
             Console.WriteLine("What type of droid is it?");
             Console.WriteLine("1. Protocol");
             Console.WriteLine("2. Utility");
-            Console.WriteLine("3. Janitorial");
+            Console.WriteLine("3. Janitor");
             Console.WriteLine("4. Astromech");
             Console.WriteLine("5. Cancel This Operation");
         }
@@ -151,8 +153,8 @@ namespace cis237assignment4
             return returnArray;
         }
 
-        //Display and get the Janatorial options
-        private bool[] displayAndGetJanatorialOptions()
+        //Display and get the Janitor options
+        private bool[] displayAndGetJanitorOptions()
         {
             Console.WriteLine();
             bool option1 = this.displayAndGetOption("Does the droid have a trash compactor?");
@@ -164,7 +166,7 @@ namespace cis237assignment4
         }
 
         //Display and get the astromech options
-        private bool displayAndGetAstromechOption()
+        private bool displayAndGetAstromechOptions()
         {
             Console.WriteLine();
             return this.displayAndGetOption("Does the droid have a fire extinguisher?");
@@ -269,7 +271,7 @@ namespace cis237assignment4
                     break;
 
                 case 3:
-                    this.chooseOptions(Color, Material, "Janatorial");
+                    this.chooseOptions(Color, Material, "Janitor");
                     break;
 
                 case 4:
@@ -315,18 +317,18 @@ namespace cis237assignment4
                     this.droidCollection.Add(Material, Model, Color, standardOptions[0], standardOptions[1], standardOptions[2]);
                     break;
 
-                //If it is a Janatorial
-                case "Janatorial":
-                    //Get the rest of the options for a Janatorial droid.
-                    bool[] janatorialOptions = this.displayAndGetJanatorialOptions();
+                //If it is a Janitor
+                case "Janitor":
+                    //Get the rest of the options for a Janitor droid.
+                    bool[] janitorOptions = this.displayAndGetJanitorOptions();
                     //Add it to the collection
-                    this.droidCollection.Add(Material, Model, Color, standardOptions[0], standardOptions[1], standardOptions[2], janatorialOptions[0], janatorialOptions[1]);
+                    this.droidCollection.Add(Material, Model, Color, standardOptions[0], standardOptions[1], standardOptions[2], janitorOptions[0], janitorOptions[1]);
                     break;
 
                 //If it is a Astromech
                 case "Astromech":
                     //Get the rest of the options for an astromech
-                    bool astromechOption = this.displayAndGetAstromechOption();
+                    bool astromechOption = this.displayAndGetAstromechOptions();
                     int astromechNumberOfShips = this.displayAndGetAstromechNumberOfShips();
                     //Add it to the collection
                     this.droidCollection.Add(Material, Model, Color, standardOptions[0], standardOptions[1], standardOptions[2], astromechOption, astromechNumberOfShips);

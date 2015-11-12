@@ -24,6 +24,8 @@ namespace cis237assignment4
             droidCollection = new IDroid[sizeOfCollection];
             //set length of collection to 0
             lengthOfCollection = 0;
+
+            PopulateDroidList();    //add hardcoded droids to the collection
         }
 
         //The Add method for a Protocol Droid. The parameters passed in match those needed for a protocol droid
@@ -123,6 +125,94 @@ namespace cis237assignment4
 
             //return the completed string
             return returnString;
+        }
+        
+        public void SortByModel()
+        {
+            //Create generic stacks for each model type
+            GenericStack<Droid> protocolStack = new GenericStack<Droid>();
+            GenericStack<Droid> utilityStack = new GenericStack<Droid>();
+            GenericStack<Droid> janitorStack = new GenericStack<Droid>();
+            GenericStack<Droid> astromechStack = new GenericStack<Droid>();
+
+            //Create new generic queue
+            GenericQueue<Droid> droidQueue = new GenericQueue<Droid>();
+           
+            foreach (Droid droid in droidCollection)
+            {
+                switch (droid.GetModel())
+                {
+                    case "PROTOCOL":
+                        protocolStack.Push(droid);
+                        break;
+                    case "UTILITY":
+                        utilityStack.Push(droid);
+                        break;
+                    case "JANITOR":
+                        janitorStack.Push(droid);
+                        break;
+                    case "ASTROMECH":
+                        astromechStack.Push(droid);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            //Get droids from each stack and enqueue them
+            while (astromechStack.IsNotEmpty())
+            {
+                droidQueue.Enqueue(astromechStack.Pop());
+            }
+            while (janitorStack.IsNotEmpty())
+            {
+                droidQueue.Enqueue(janitorStack.Pop());
+            }
+            while (utilityStack.IsNotEmpty())
+            {
+                droidQueue.Enqueue(utilityStack.Pop());
+            }
+            while (protocolStack.IsNotEmpty())
+            {
+                droidQueue.Enqueue(protocolStack.Pop());
+            }
+
+            int i = 0; 
+            while (droidQueue.IsNotEmpty())
+            {
+                droidCollection[i] = droidQueue.Dequeue();
+                i++;
+            }
+        }
+
+        public void SortByCost()
+        {
+            //Get the total cost for each droid
+            foreach (Droid droid in droidCollection)
+            {
+                droid.CalculateTotalCost();
+            }
+
+            //Sort the array by cost
+            MergeSort.MergeSortArray(droidCollection);
+        }
+
+        public void PopulateDroidList()
+        {
+            Console.WriteLine("Loading droid list...");
+            Add("Vanadium", "Protocol", "Gold", 20);
+            Add("Carbonite", "Utility", "Bronze", true, false, true);
+            Add("Quadranium", "Janitor", "Gold", false, false, false, false, true);
+            Add("Vanadium", "Astromech", "Bronze", false, true, false, false, 25);
+            Add("Quadranium", "Protocol", "Silver", 60);
+            Add("Vanadium", "Utility", "Silver", true, false, false);
+            Add("Carbonite", "Janitor", "Bronze", true, true, false, true, true);
+            Add("Carbonite", "Astromech", "Silver", true, false, false, true, 10);
+            Add("Vanadium", "Protocol", "Silver", 10);
+            Add("Carbonite", "Utility", "Silver", true, true, false);
+            Add("Quadranium", "Janitor", "Gold", true, true, false, true, true);
+            Add("Quadranium", "Astromech", "Gold", true, true, true, true, 100);
+            Console.WriteLine("Droids loaded succesffully!" + Environment.NewLine);
         }
     }
 }

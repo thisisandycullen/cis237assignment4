@@ -41,15 +41,15 @@ namespace cis237assignment4
                         userInterface.CreateDroid();
                         break;
                     case 2:
-                        userInterface.PrintDroidList();
+                        userInterface.ColorCodeDroidList();
                         break;
                     case 3:
                         droidCollection.SortByModel();
-                        userInterface.PrintDroidList();
+                        userInterface.ColorCodeDroidList();
                         break;
                     case 4:
                         droidCollection.SortByCost();
-                        userInterface.PrintDroidList();
+                        userInterface.ColorCodeDroidList();
                         break;
                     default:
                         userInterface.DisplayError();

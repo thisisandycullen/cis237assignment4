@@ -104,7 +104,7 @@ namespace cis237assignment4
         }
 
         //Method to print out the droid list
-        public void PrintDroidList()
+        public void ColorCodeDroidList()
         {
             Console.WriteLine();
 
@@ -118,37 +118,31 @@ namespace cis237assignment4
                 {
                     case "Bronze":
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("******************************" + Environment.NewLine);
-                        Console.WriteLine(DroidCollection.droidArray[i].ToString());
-                        Console.Write("Total Cost: ");
-                        Console.WriteLine(DroidCollection.droidArray[i].TotalCost.ToString("N") + " Credits");
-                        Console.WriteLine("******************************" + Environment.NewLine);
+                        PrintDroid(i);
                         break;
                     case "Silver":
                         Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.WriteLine("******************************" + Environment.NewLine);
-                        Console.WriteLine(DroidCollection.droidArray[i].ToString());
-                        Console.Write("Total Cost: ");
-                        Console.WriteLine(DroidCollection.droidArray[i].TotalCost.ToString("N") + " Credits");
-                        Console.WriteLine("******************************" + Environment.NewLine);
+                        PrintDroid(i);
                         break;
                     case "Gold":
-                        
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("******************************" + Environment.NewLine);
-                        Console.WriteLine(DroidCollection.droidArray[i].ToString());
-                        Console.Write("Total Cost: ");
-                        Console.WriteLine(DroidCollection.droidArray[i].TotalCost.ToString("N") + " Credits");
-                        Console.WriteLine("******************************" + Environment.NewLine);
+                        PrintDroid(i);
                         break;
                 }
 
                 i++;
             }
 
-          
-
             Console.ResetColor();
+        }
+
+        private void PrintDroid(int i)
+        {
+            Console.WriteLine("******************************" + Environment.NewLine);
+            Console.WriteLine(DroidCollection.droidArray[i].ToString());
+            Console.Write("Total Cost: ");
+            Console.WriteLine(DroidCollection.droidArray[i].TotalCost.ToString("N") + " Credits");
+            Console.WriteLine("******************************" + Environment.NewLine);
         }
 
         //Display the Model Selection

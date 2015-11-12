@@ -20,7 +20,7 @@ namespace cis237assignment4
     class DroidCollection : IDroidCollection
     {
         //Private variable to hold the collection of droids
-        public IDroid[] droidArray;
+        public static IDroid[] droidArray;
         //Private variable to hold the length of the Collection
         private int lengthOfCollection;
 

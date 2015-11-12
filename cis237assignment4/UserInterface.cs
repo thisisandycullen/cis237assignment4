@@ -109,6 +109,17 @@ namespace cis237assignment4
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(this.droidCollection.GetPrintString());
+
+            //int i = 0;
+            //while (DroidCollection.droidArray[i] != null)
+            //{
+            //    switch (DroidCollection.droidArray[i])
+            //    {
+
+            //    }
+                    
+            //}
+
             Console.ResetColor();
         }
 
@@ -189,7 +200,7 @@ namespace cis237assignment4
         private bool DisplayAndGetAstromechOptions()
         {
             Console.WriteLine();
-            return this.DisplayAndGetOption("Does the droid have a fire extinguisher?" + Environment.NewLine);
+            return this.DisplayAndGetOption("Does the droid have a fire extinguisher?");
         }
 
         //Display and get the number of ships
@@ -217,11 +228,20 @@ namespace cis237assignment4
         private bool DisplayAndGetOption(string optionString)
         {
             Console.WriteLine(optionString + " (y/n)");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("> ");
             string choice = Console.ReadLine();
+            Console.ResetColor();
+
             while (choice.ToUpper() != "Y" && choice.ToUpper() != "N")
             {
                 Console.WriteLine(optionString);
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("> ");
                 choice = Console.ReadLine();
+                Console.ResetColor();
             }
             if (choice.ToUpper() == "Y")
             {

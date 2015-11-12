@@ -14,6 +14,8 @@ namespace cis237assignment4
     {
         static void Main(string[] args)
         {
+            //bool dontexit = true;
+
             //PRINT WELCOME HEADER
             Console.WriteLine("    Jawa Droid Manager" + Environment.NewLine);
             Console.WriteLine("         ,-----.{0}       ,'_/_|_\\_`.{0}      /<<::8[O]::>\\{0}     _|-----------|_{0} :::|  | ====-=- |  |:::{0} :::|  | -=-==== |  |:::{0} :::\\  | ::::|()||  /:::{0} ::::| | ....|()|| |::::{0}     | |_________| |{0}     | |\\_______/| |{0}    /   \\ /   \\ /   \\{0}    `---' `---' `---'{0}", Environment.NewLine);
@@ -30,38 +32,35 @@ namespace cis237assignment4
             //Get the choice that the user makes
             int choice = userInterface.GetMenuChoice();
 
-
-            //Test which choice was made
-            switch (choice)
+            while (choice != 5)
             {
-                case 1:
-                    userInterface.CreateDroid();
-                    break;
-                case 2:
-                    userInterface.PrintDroidList();
-                    break;
-                case 3:
-                    droidCollection.SortByModel();
-                    userInterface.PrintDroidList();
-                    break;
-                case 4:
-                    droidCollection.SortByCost();
-                    userInterface.PrintDroidList();
-                    break;
-                case 5:
-                    Environment.Exit(0);
-                    break;
-                default:
-                    userInterface.DisplayError();
-                    break;
-            }
+                //Test which choice was made
+                switch (choice)
+                {
+                    case 1:
+                        userInterface.CreateDroid();
+                        break;
+                    case 2:
+                        userInterface.PrintDroidList();
+                        break;
+                    case 3:
+                        droidCollection.SortByModel();
+                        userInterface.PrintDroidList();
+                        break;
+                    case 4:
+                        droidCollection.SortByCost();
+                        userInterface.PrintDroidList();
+                        break;
+                    default:
+                        userInterface.DisplayError();
+                        break;
+                }
+           
 
             //Re-display the menu, and re-prompt for the choice
             userInterface.DisplayMainMenu();
             choice = userInterface.GetMenuChoice();
-
-
-
+            }
         }
     }
 }

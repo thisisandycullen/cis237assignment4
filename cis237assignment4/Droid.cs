@@ -22,6 +22,12 @@ namespace cis237assignment4
         protected string model;
         protected string color;
 
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+
         protected decimal baseCost;
         protected decimal totalCost;
 

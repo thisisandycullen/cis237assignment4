@@ -22,21 +22,8 @@ namespace cis237assignment4
         protected string model;
         protected string color;
 
-        public string Color
-        {
-            get { return color; }
-            set { color = value; }
-        }
-
         protected decimal baseCost;
         protected decimal totalCost;
-
-        //The public property for TotalCost
-        public decimal TotalCost
-        {
-            get { return totalCost; }
-            set { totalCost = value; }
-        }
 
         //Constructor that takes the main 3 parameters shared amongst all 4 types of droids
         public Droid(string Material, string Model, string Color)
@@ -49,6 +36,19 @@ namespace cis237assignment4
         public string GetModel()
         {
             return this.model;
+        }
+
+        //The public property for TotalCost
+        public decimal TotalCost
+        {
+            get { return totalCost; }
+            set { totalCost = value; }
+        }
+
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
         }
 
         //Virtual method that can be overridden in the derived classes if needed.

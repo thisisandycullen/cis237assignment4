@@ -107,18 +107,46 @@ namespace cis237assignment4
         public void PrintDroidList()
         {
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine(this.droidCollection.GetPrintString());
 
-            //int i = 0;
-            //while (DroidCollection.droidArray[i] != null)
-            //{
-            //    switch (DroidCollection.droidArray[i])
-            //    {
+            //PRINT OUT DROID INFO INDIVIUALLY -- COLOR-CODED BY DROID COLOR!
+            int i = 0;
+            while (DroidCollection.droidArray[i] != null)
+            {
+                DroidCollection.droidArray[i].CalculateTotalCost();
 
-            //    }
-                    
-            //}
+                switch (((Droid)DroidCollection.droidArray[i]).Color)
+                {
+                    case "Bronze":
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("******************************" + Environment.NewLine);
+                        Console.WriteLine(DroidCollection.droidArray[i].ToString());
+                        Console.Write("Total Cost: ");
+                        Console.WriteLine(DroidCollection.droidArray[i].TotalCost.ToString("N") + " Credits");
+                        Console.WriteLine("******************************" + Environment.NewLine);
+                        break;
+                    case "Silver":
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        Console.WriteLine("******************************" + Environment.NewLine);
+                        Console.WriteLine(DroidCollection.droidArray[i].ToString());
+                        Console.Write("Total Cost: ");
+                        Console.WriteLine(DroidCollection.droidArray[i].TotalCost.ToString("N") + " Credits");
+                        Console.WriteLine("******************************" + Environment.NewLine);
+                        break;
+                    case "Gold":
+                        
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("******************************" + Environment.NewLine);
+                        Console.WriteLine(DroidCollection.droidArray[i].ToString());
+                        Console.Write("Total Cost: ");
+                        Console.WriteLine(DroidCollection.droidArray[i].TotalCost.ToString("N") + " Credits");
+                        Console.WriteLine("******************************" + Environment.NewLine);
+                        break;
+                }
+
+                i++;
+            }
+
+          
 
             Console.ResetColor();
         }

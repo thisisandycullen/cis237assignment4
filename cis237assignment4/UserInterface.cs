@@ -189,8 +189,7 @@ namespace cis237assignment4
         private bool DisplayAndGetAstromechOptions()
         {
             Console.WriteLine();
-            return this.DisplayAndGetOption("Does the droid have a fire extinguisher?");
-            Console.WriteLine();
+            return this.DisplayAndGetOption("Does the droid have a fire extinguisher?" + Environment.NewLine);
         }
 
         //Display and get the number of ships

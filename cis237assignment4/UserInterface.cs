@@ -18,13 +18,6 @@ namespace cis237assignment4
             this.droidCollection = DroidCollection;
         }
 
-        //Method to display the welcome message of the program
-        public void DisplayGreeting()
-        {
-            Console.WriteLine("Welcome to the Droid Inventory System");
-            Console.WriteLine();
-        }
-
         //Method to display the main menu
         public void DisplayMainMenu()
         {
@@ -33,15 +26,18 @@ namespace cis237assignment4
             Console.WriteLine("2. Show the droid list");
             Console.WriteLine("3. Sort droids by model");
             Console.WriteLine("4. Sort droids by price");
-            Console.WriteLine("3. Exit the program");
+            Console.WriteLine("5. Exit the program");
         }
 
         //Method to get a menu choice
         public int GetMenuChoice()
         {
             //Display prompt and get the input from the user
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("> ");
             string choice = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.White;
+
 
             //Set a variable for the menu choice to 0. Try to parse the input, if successful, return the menu choice.
             int menuChoice = 0;
@@ -61,7 +57,7 @@ namespace cis237assignment4
         public void CreateDroid()
         {
             //Prompt for color selection
-            this.displayColorSelection();
+            this.DisplayColorSelection();
             //Get the choice that the user makes
             int choice = this.GetMenuChoice();
 
@@ -69,7 +65,7 @@ namespace cis237assignment4
             while(choice < 1 || choice > 4)
             {
                 //Prompt for a valid choice
-                this.displayColorSelection();
+                this.DisplayColorSelection();
                 choice = this.GetMenuChoice();
             }
 
@@ -78,15 +74,15 @@ namespace cis237assignment4
             switch(choice)
             {
                 case 1:
-                    this.chooseMaterial("Bronze");
+                    this.ChooseMaterial("Bronze");
                     break;
 
                 case 2:
-                    this.chooseMaterial("Silver");
+                    this.ChooseMaterial("Silver");
                     break;
 
                 case 3:
-                    this.chooseMaterial("Gold");
+                    this.ChooseMaterial("Gold");
                     break;
             }
         }
@@ -95,11 +91,14 @@ namespace cis237assignment4
         public void PrintDroidList()
         {
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(this.droidCollection.GetPrintString());
+            Console.ForegroundColor = ConsoleColor.White;
+
         }
 
         //Display the Model Selection
-        private void displayModelSelection()
+        private void DisplayModelSelection()
         {
             Console.WriteLine();
             Console.WriteLine("What type of droid is it?");
@@ -111,7 +110,7 @@ namespace cis237assignment4
         }
 
         //Display the Material Selection
-        private void displayMaterialSelection()
+        private void DisplayMaterialSelection()
         {
             Console.WriteLine();
             Console.WriteLine("What material is the droid made out of?");
@@ -122,7 +121,7 @@ namespace cis237assignment4
         }
 
         //Display the Color Selection
-        private void displayColorSelection()
+        private void DisplayColorSelection()
         {
             Console.WriteLine();
             Console.WriteLine("What color is the droid?");
@@ -133,47 +132,47 @@ namespace cis237assignment4
         }
 
         //Display the Number of Languages Selection
-        private void displayNumberOfLanguageSelection()
+        private void DisplayNumberOfLanguageSelection()
         {
             Console.WriteLine();
             Console.WriteLine("How many languages does the droid know?");
         }
 
         //Display and get the utility options
-        private bool[] displayAndGetUtilityOptions()
+        private bool[] DisplayAndGetUtilityOptions()
         {
             Console.WriteLine();
-            bool option1 = this.displayAndGetOption("Does the droid have a toolbox?");
+            bool option1 = this.DisplayAndGetOption("Does the droid have a toolbox?");
             Console.WriteLine();
-            bool option2 = this.displayAndGetOption("Does the droid have a computer connection?");
+            bool option2 = this.DisplayAndGetOption("Does the droid have a computer connection?");
             Console.WriteLine();
-            bool option3 = this.displayAndGetOption("Does the droid have an arm?");
+            bool option3 = this.DisplayAndGetOption("Does the droid have an arm?");
 
             bool[] returnArray = {option1, option2, option3};
             return returnArray;
         }
 
         //Display and get the Janitor options
-        private bool[] displayAndGetJanitorOptions()
+        private bool[] DisplayAndGetJanitorOptions()
         {
             Console.WriteLine();
-            bool option1 = this.displayAndGetOption("Does the droid have a trash compactor?");
+            bool option1 = this.DisplayAndGetOption("Does the droid have a trash compactor?");
             Console.WriteLine();
-            bool option2 = this.displayAndGetOption("Does the droid have a vaccum?");
+            bool option2 = this.DisplayAndGetOption("Does the droid have a vaccum?");
 
             bool[] returnArray = { option1, option2 };
             return returnArray;
         }
 
         //Display and get the astromech options
-        private bool displayAndGetAstromechOptions()
+        private bool DisplayAndGetAstromechOptions()
         {
             Console.WriteLine();
-            return this.displayAndGetOption("Does the droid have a fire extinguisher?");
+            return this.DisplayAndGetOption("Does the droid have a fire extinguisher?");
         }
 
         //Display and get the number of ships
-        private int displayAndGetAstromechNumberOfShips()
+        private int DisplayAndGetAstromechNumberOfShips()
         {
             Console.WriteLine();
             Console.WriteLine("How many ships has the droid worked on?");
@@ -190,7 +189,7 @@ namespace cis237assignment4
 
         //Method to display and get a general option
         //It ensures that Y or N is the typed response
-        private bool displayAndGetOption(string optionString)
+        private bool DisplayAndGetOption(string optionString)
         {
             Console.WriteLine(optionString + " (y/n)");
             string choice = Console.ReadLine();
@@ -210,17 +209,17 @@ namespace cis237assignment4
         }
 
         //Method to choose the Material for the droid. It accepts Color as the parameter
-        private void chooseMaterial(string Color)
+        private void ChooseMaterial(string Color)
         {
             //Display the material selection
-            this.displayMaterialSelection();
+            this.DisplayMaterialSelection();
             //get the users choice
             int choice = this.GetMenuChoice();
 
             //while the chioce is not valid, wait until there is a valid one
             while (choice < 0 || choice > 4)
             {
-                this.displayMaterialSelection();
+                this.DisplayMaterialSelection();
                 choice = this.GetMenuChoice();
             }
 
@@ -229,25 +228,25 @@ namespace cis237assignment4
             switch(choice)
             {
                 case 1:
-                    this.chooseModel(Color, "Carbonite");
+                    this.ChooseModel(Color, "Carbonite");
                     break;
                         
                 case 2:
-                    this.chooseModel(Color, "Vanadium");
+                    this.ChooseModel(Color, "Vanadium");
                     break;
 
                 case 3:
-                    this.chooseModel(Color, "Quadranium");
+                    this.ChooseModel(Color, "Quadranium");
                     break;
 
             }
         }
 
         //Method to choose a model and decide what other input is needed based on the selected model
-        private void chooseModel(string Color, string Material)
+        private void ChooseModel(string Color, string Material)
         {
             //Display the menu to choose which model
-            this.displayModelSelection();
+            this.DisplayModelSelection();
             //Get the model choice
             int choice = this.GetMenuChoice();
 
@@ -255,7 +254,7 @@ namespace cis237assignment4
             while (choice < 0 || choice > 5)
             {
                 //Display the menu again, and ask for the option again.
-                this.displayModelSelection();
+                this.DisplayModelSelection();
                 choice = this.GetMenuChoice();
             }
 
@@ -263,29 +262,29 @@ namespace cis237assignment4
             switch (choice)
             {
                 case 1:
-                    this.chooseNumberOfLanguages(Color, Material, "Protocol");
+                    this.ChooseNumberOfLanguages(Color, Material, "Protocol");
                     break;
 
                 case 2:
-                    this.chooseOptions(Color, Material, "Utility");
+                    this.ChooseOptions(Color, Material, "Utility");
                     break;
 
                 case 3:
-                    this.chooseOptions(Color, Material, "Janitor");
+                    this.ChooseOptions(Color, Material, "Janitor");
                     break;
 
                 case 4:
-                    this.chooseOptions(Color, Material, "Astromech");
+                    this.ChooseOptions(Color, Material, "Astromech");
                     break;
             }
         }
 
         //Method to choose the number of langages that a droid knows. It accepts the values that were determined
         //in the past methods. This method will also add a droid based on the collected information.
-        private void chooseNumberOfLanguages(string Color, string Material, string Model)
+        private void ChooseNumberOfLanguages(string Color, string Material, string Model)
         {
             //Display the number of languages selection
-            this.displayNumberOfLanguageSelection();
+            this.DisplayNumberOfLanguageSelection();
             //Get the users choice
             int choice = this.GetMenuChoice();
 
@@ -293,7 +292,7 @@ namespace cis237assignment4
             while (choice < 0)
             {
                 Console.WriteLine("Not a valid number of languages");
-                this.displayNumberOfLanguageSelection();
+                this.DisplayNumberOfLanguageSelection();
                 choice = this.GetMenuChoice();
             }
 
@@ -304,10 +303,10 @@ namespace cis237assignment4
 
         //Method to figure out which of the utility droids the user is creating, and then work on collecting the rest
         //of the needed information to create the droid.
-        private void chooseOptions(string Color, string Material, string Model)
+        private void ChooseOptions(string Color, string Material, string Model)
         {
             //Display and get the utility options.
-            bool[] standardOptions = this.displayAndGetUtilityOptions();
+            bool[] standardOptions = this.DisplayAndGetUtilityOptions();
 
             //Based on the model chosen, figure out the remaining information needed.
             switch(Model)
@@ -320,7 +319,7 @@ namespace cis237assignment4
                 //If it is a Janitor
                 case "Janitor":
                     //Get the rest of the options for a Janitor droid.
-                    bool[] janitorOptions = this.displayAndGetJanitorOptions();
+                    bool[] janitorOptions = this.DisplayAndGetJanitorOptions();
                     //Add it to the collection
                     this.droidCollection.Add(Material, Model, Color, standardOptions[0], standardOptions[1], standardOptions[2], janitorOptions[0], janitorOptions[1]);
                     break;
@@ -328,8 +327,8 @@ namespace cis237assignment4
                 //If it is a Astromech
                 case "Astromech":
                     //Get the rest of the options for an astromech
-                    bool astromechOption = this.displayAndGetAstromechOptions();
-                    int astromechNumberOfShips = this.displayAndGetAstromechNumberOfShips();
+                    bool astromechOption = this.DisplayAndGetAstromechOptions();
+                    int astromechNumberOfShips = this.DisplayAndGetAstromechNumberOfShips();
                     //Add it to the collection
                     this.droidCollection.Add(Material, Model, Color, standardOptions[0], standardOptions[1], standardOptions[2], astromechOption, astromechNumberOfShips);
                     break;

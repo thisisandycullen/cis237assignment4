@@ -10,14 +10,15 @@ namespace cis237assignment4
     {
         static void Main(string[] args)
         {
+            //PRINT WELCOME HEADER
+            Console.WriteLine("    Jawa Droid Manager" + Environment.NewLine);
+            Console.WriteLine("         ,-----.{0}       ,'_/_|_\\_`.{0}      /<<::8[O]::>\\{0}     _|-----------|_{0} :::|  | ====-=- |  |:::{0} :::|  | -=-==== |  |:::{0} :::\\  | ::::|()||  /:::{0} ::::| | ....|()|| |::::{0}     | |_________| |{0}     | |\\_______/| |{0}    /   \\ /   \\ /   \\{0}    `---' `---' `---'{0}", Environment.NewLine);
+
             //Create a new droid collection and set the size of it to 100.
             IDroidCollection droidCollection = new DroidCollection(100);
 
             //Create a user interface and pass the droidCollection into it as a dependency
             UserInterface userInterface = new UserInterface(droidCollection);
-
-            //Display the main greeting for the program
-            userInterface.DisplayGreeting();
 
             //Display the main menu for the program
             userInterface.DisplayMainMenu();
@@ -25,7 +26,7 @@ namespace cis237assignment4
             //Get the choice that the user makes
             int choice = userInterface.GetMenuChoice();
 
-            //While the choice is not equal to 3, continue to do work with the program
+            //While the choice is not equal to 5, continue to do work with the program
             while (choice != 5)
             {
                 //Test which choice was made

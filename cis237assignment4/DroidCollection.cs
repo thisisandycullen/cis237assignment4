@@ -11,7 +11,7 @@ namespace cis237assignment4
     class DroidCollection : IDroidCollection
     {
         //Private variable to hold the collection of droids
-        private IDroid[] droidCollection;
+        public IDroid[] droidArray;
         //Private variable to hold the length of the Collection
         private int lengthOfCollection;
 
@@ -21,7 +21,7 @@ namespace cis237assignment4
         public DroidCollection(int sizeOfCollection)
         {
             //Make new array for the collection
-            droidCollection = new IDroid[sizeOfCollection];
+            droidArray = new IDroid[sizeOfCollection];
             //set length of collection to 0
             lengthOfCollection = 0;
 
@@ -32,11 +32,11 @@ namespace cis237assignment4
         public bool Add(string Material, string Model, string Color, int NumberOfLanguages)
         {
             //If there is room to add the new droid
-            if (lengthOfCollection < (droidCollection.Length - 1))
+            if (lengthOfCollection < (droidArray.Length - 1))
             {
                 //Add the new droid. Note that the droidCollection is of type IDroid, but the droid being stored is
                 //of type Protocol Droid. This is okay because of Polymorphism.
-                droidCollection[lengthOfCollection] = new ProtocolDroid(Material, Model, Color, NumberOfLanguages);
+                droidArray[lengthOfCollection] = new ProtocolDroid(Material, Model, Color, NumberOfLanguages);
                 //Increase the length of the collection
                 lengthOfCollection++;
                 //return that it was successful
@@ -54,9 +54,9 @@ namespace cis237assignment4
         //The method can be redeclared as Add since it takes different parameters. This is called method overloading.
         public bool Add(string Material, string Model, string Color, bool HasToolBox, bool HasComputerConnection, bool HasArm)
         {
-            if (lengthOfCollection < (droidCollection.Length - 1))
+            if (lengthOfCollection < (droidArray.Length - 1))
             {
-                droidCollection[lengthOfCollection] = new UtilityDroid(Material, Model, Color, HasToolBox, HasComputerConnection, HasArm);
+                droidArray[lengthOfCollection] = new UtilityDroid(Material, Model, Color, HasToolBox, HasComputerConnection, HasArm);
                 lengthOfCollection++;
                 return true;
             }
@@ -69,9 +69,9 @@ namespace cis237assignment4
         //The Add method for a Janitor droid. Code is the same as the above method except for the type of droid being created.
         public bool Add(string Material, string Model, string Color, bool HasToolBox, bool HasComputerConnection, bool HasArm, bool HasTrashCompactor, bool HasVaccum)
         {
-            if (lengthOfCollection < (droidCollection.Length - 1))
+            if (lengthOfCollection < (droidArray.Length - 1))
             {
-                droidCollection[lengthOfCollection] = new JanitorDroid(Material, Model, Color, HasToolBox, HasComputerConnection, HasArm, HasTrashCompactor, HasVaccum);
+                droidArray[lengthOfCollection] = new JanitorDroid(Material, Model, Color, HasToolBox, HasComputerConnection, HasArm, HasTrashCompactor, HasVaccum);
                 lengthOfCollection++;
                 return true;
             }
@@ -84,9 +84,9 @@ namespace cis237assignment4
         //The Add method for a Astromech droid. Code is the same as the above method except for the type of droid being created.
         public bool Add(string Material, string Model, string Color, bool HasToolBox, bool HasComputerConnection, bool HasArm, bool HasFireExtinguisher, int NumberOfShips)
         {
-            if (lengthOfCollection < (droidCollection.Length - 1))
+            if (lengthOfCollection < (droidArray.Length - 1))
             {
-                droidCollection[lengthOfCollection] = new AstromechDroid(Material, Model, Color, HasToolBox, HasComputerConnection, HasArm, HasFireExtinguisher, NumberOfShips);
+                droidArray[lengthOfCollection] = new AstromechDroid(Material, Model, Color, HasToolBox, HasComputerConnection, HasArm, HasFireExtinguisher, NumberOfShips);
                 lengthOfCollection++;
                 return true;
             }
@@ -94,6 +94,12 @@ namespace cis237assignment4
             {
                 return false;
             }
+        }
+
+        public int GetLength()
+        {
+            int length = droidArray.Length;
+            return length;
         }
 
         //The last method that must be implemented due to implementing the interface.
@@ -105,7 +111,7 @@ namespace cis237assignment4
             string returnString = "";
 
             //For each droid in the droidCollection
-            foreach (IDroid droid in droidCollection)
+            foreach (IDroid droid in droidArray)
             {
                 //If the droid is not null (It might be since the array may not be full)
                 if (droid != null)
@@ -138,7 +144,7 @@ namespace cis237assignment4
             //Create new generic queue
             GenericQueue<Droid> droidQueue = new GenericQueue<Droid>();
            
-            foreach (Droid droid in droidCollection)
+            foreach (Droid droid in droidArray)
             {
                 if (droid != null)
                 {
@@ -183,7 +189,7 @@ namespace cis237assignment4
             int i = 0; 
             while (droidQueue.IsNotEmpty())
             {
-                droidCollection[i] = droidQueue.Dequeue();
+                droidArray[i] = droidQueue.Dequeue();
                 i++;
             }
         }
@@ -191,7 +197,7 @@ namespace cis237assignment4
         public void SortByCost()
         {
             //Get the total cost for each droid
-            foreach (Droid droid in droidCollection)
+            foreach (Droid droid in droidArray)
             {
                 if (droid != null)
                 {
@@ -200,7 +206,7 @@ namespace cis237assignment4
             }
 
             //Sort the array by cost
-            MergeSort.MergeSortArray(droidCollection);
+            MergeSort.MergeSortArray(droidArray);
         }
 
         public void PopulateDroidList()

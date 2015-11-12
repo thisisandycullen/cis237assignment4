@@ -52,6 +52,12 @@ namespace cis237assignment4
             //Copy the array to comparable array
             for (int k = lowVal; k <= highVal; k++)
             {
+                compareArray[k] = array[k];
+            }
+
+            //Copy the array to comparable array
+            for (int k = lowVal; k <= highVal; k++)
+            {
                 if (i > midVal)
                 {   //End of first subarray
                     array[k] = compareArray[j++];

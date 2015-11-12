@@ -1,4 +1,12 @@
-﻿using System;
+﻿//ANDY CULLEN
+//DUE DATE: 11/12/15
+//ASSIGNMENT 4: Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
+
+//GENERICQUEUE CLASS
+
+//THIS CLASS TAKES GENERIC ITEMS FROM THE STACK, ENQUEUES, THEN DEQUEUES THEM
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

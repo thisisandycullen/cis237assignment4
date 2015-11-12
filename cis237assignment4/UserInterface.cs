@@ -1,4 +1,12 @@
-﻿using System;
+﻿//ANDY CULLEN
+//DUE DATE: 11/12/15
+//ASSIGNMENT 4: Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
+
+//USERINTERFACE CLASS
+
+//THIS CLASS HANDLES USER INPUT, ASSIGNS VALUES FOR NEW DROID OBJECTS, AND PRINTS INFORMATION TO THE CONSOLE
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,9 +32,10 @@ namespace cis237assignment4
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("1. Add a new droid to the system");
             Console.WriteLine("2. Show the droid list");
-            Console.WriteLine("3. Sort droids by model");
-            Console.WriteLine("4. Sort droids by price");
+            Console.WriteLine("3. Show droids sorted by model");
+            Console.WriteLine("4. Show droids sorted by price");
             Console.WriteLine("5. Exit the program");
+            Console.WriteLine();
         }
 
         //Method to get a menu choice
@@ -36,7 +45,7 @@ namespace cis237assignment4
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("> ");
             string choice = Console.ReadLine();
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ResetColor();
 
 
             //Set a variable for the menu choice to 0. Try to parse the input, if successful, return the menu choice.
@@ -51,6 +60,13 @@ namespace cis237assignment4
             }
 
             return menuChoice;
+        }
+
+        public void DisplayError()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine(Environment.NewLine + "Invalid input." + Environment.NewLine);
+            Console.ResetColor();
         }
 
         //Method to do the work of creating a new droid
@@ -91,10 +107,9 @@ namespace cis237assignment4
         public void PrintDroidList()
         {
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine(this.droidCollection.GetPrintString());
-            Console.ForegroundColor = ConsoleColor.White;
-
+            Console.ResetColor();
         }
 
         //Display the Model Selection
@@ -107,6 +122,7 @@ namespace cis237assignment4
             Console.WriteLine("3. Janitor");
             Console.WriteLine("4. Astromech");
             Console.WriteLine("5. Cancel This Operation");
+            Console.WriteLine();
         }
 
         //Display the Material Selection
@@ -118,6 +134,7 @@ namespace cis237assignment4
             Console.WriteLine("2. Vanadium");
             Console.WriteLine("3. Quadranium");
             Console.WriteLine("4. Cancel This Operation");
+            Console.WriteLine();
         }
 
         //Display the Color Selection
@@ -129,6 +146,7 @@ namespace cis237assignment4
             Console.WriteLine("2. Silver");
             Console.WriteLine("3. Gold");
             Console.WriteLine("4. Cancel This Operation");
+            Console.WriteLine();
         }
 
         //Display the Number of Languages Selection
@@ -136,6 +154,7 @@ namespace cis237assignment4
         {
             Console.WriteLine();
             Console.WriteLine("How many languages does the droid know?");
+            Console.WriteLine();
         }
 
         //Display and get the utility options
@@ -147,6 +166,7 @@ namespace cis237assignment4
             bool option2 = this.DisplayAndGetOption("Does the droid have a computer connection?");
             Console.WriteLine();
             bool option3 = this.DisplayAndGetOption("Does the droid have an arm?");
+            Console.WriteLine();
 
             bool[] returnArray = {option1, option2, option3};
             return returnArray;
@@ -159,6 +179,7 @@ namespace cis237assignment4
             bool option1 = this.DisplayAndGetOption("Does the droid have a trash compactor?");
             Console.WriteLine();
             bool option2 = this.DisplayAndGetOption("Does the droid have a vaccum?");
+            Console.WriteLine();
 
             bool[] returnArray = { option1, option2 };
             return returnArray;
@@ -169,6 +190,7 @@ namespace cis237assignment4
         {
             Console.WriteLine();
             return this.DisplayAndGetOption("Does the droid have a fire extinguisher?");
+            Console.WriteLine();
         }
 
         //Display and get the number of ships
@@ -176,12 +198,16 @@ namespace cis237assignment4
         {
             Console.WriteLine();
             Console.WriteLine("How many ships has the droid worked on?");
+            Console.WriteLine();
+
             int choice = this.GetMenuChoice();
 
             while (choice <= 0)
             {
                 Console.WriteLine("Not a valid number of ships");
                 Console.WriteLine("How many ships as the droid worked on?");
+                Console.WriteLine();
+
                 choice = this.GetMenuChoice();
             }
             return choice;
@@ -291,7 +317,10 @@ namespace cis237assignment4
             //While the choice is not valid, keep prompting for a valid one.
             while (choice < 0)
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Not a valid number of languages");
+                Console.ResetColor();
+
                 this.DisplayNumberOfLanguageSelection();
                 choice = this.GetMenuChoice();
             }

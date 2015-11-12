@@ -1,4 +1,8 @@
-﻿using System;
+﻿//ANDY CULLEN
+//DUE DATE: 11/12/15
+//ASSIGNMENT 4: Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,37 +30,36 @@ namespace cis237assignment4
             //Get the choice that the user makes
             int choice = userInterface.GetMenuChoice();
 
-            //While the choice is not equal to 5, continue to do work with the program
-            while (choice != 5)
+
+            //Test which choice was made
+            switch (choice)
             {
-                //Test which choice was made
-                switch (choice)
-                {
-                    //Choose to create a droid
-                    case 1:
-                        userInterface.CreateDroid();
-                        break;
-
-                    //Choose to Print the droid
-                    case 2:
-                        userInterface.PrintDroidList();
-                        break;
-
-                    case 3:
-                        droidCollection.SortByModel();
-                        break;
-
-                    case 4:
-                        droidCollection.SortByCost();
-                        break;
-                    case 5:
-                        Environment.Exit(0);
-                        break;
-                }
-                //Re-display the menu, and re-prompt for the choice
-                userInterface.DisplayMainMenu();
-                choice = userInterface.GetMenuChoice();
+                case 1:
+                    userInterface.CreateDroid();
+                    break;
+                case 2:
+                    userInterface.PrintDroidList();
+                    break;
+                case 3:
+                    droidCollection.SortByModel();
+                    userInterface.PrintDroidList();
+                    break;
+                case 4:
+                    droidCollection.SortByCost();
+                    userInterface.PrintDroidList();
+                    break;
+                case 5:
+                    Environment.Exit(0);
+                    break;
+                default:
+                    userInterface.DisplayError();
+                    break;
             }
+
+            //Re-display the menu, and re-prompt for the choice
+            userInterface.DisplayMainMenu();
+            choice = userInterface.GetMenuChoice();
+
 
 
         }

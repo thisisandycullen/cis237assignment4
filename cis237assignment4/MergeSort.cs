@@ -1,4 +1,12 @@
-﻿using System;
+﻿//ANDY CULLEN
+//DUE DATE: 11/12/15
+//ASSIGNMENT 4: Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
+
+//MERGESORT CLASS
+
+//THIS CLASS TAKES AN ICOMPARABLE ARRAY AND PERFORMS A MERGESORT ON ITS CONTENTS
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

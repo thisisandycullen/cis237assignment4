@@ -1,4 +1,13 @@
-﻿using System;
+﻿//ANDY CULLEN
+//DUE DATE: 11/12/15
+//ASSIGNMENT 4: Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
+
+//DROIDCOLLECTION CLASS
+
+//THIS CLASS ACCEPTS NEW DROIDS FROM THE USER INTERFACE AND STORES THEM IN A LIST.
+//DIFFERENT SORTING METHODS ARE CALLED FROM THIS CLASS.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

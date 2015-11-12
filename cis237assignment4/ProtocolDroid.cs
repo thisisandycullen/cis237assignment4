@@ -1,4 +1,12 @@
-﻿using System;
+﻿//ANDY CULLEN
+//DUE DATE: 11/12/15
+//ASSIGNMENT 4: Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
+
+//PROTOCOLDROID CLASS
+
+//THE PROTOCOLDROID CLASS CALCULATES THE TOTAL COST OF A PROTOCOL DROID BY ADDING ADDITIONAL COST FOR ADDED FEATURES
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

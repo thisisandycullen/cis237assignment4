@@ -1,4 +1,10 @@
-﻿using System;
+﻿//ANDY CULLEN
+//DUE DATE: 11/12/15
+//ASSIGNMENT 4: Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
+
+//IDROID INTERFACE
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

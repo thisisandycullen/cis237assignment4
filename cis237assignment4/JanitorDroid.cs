@@ -1,4 +1,13 @@
-﻿using System;
+﻿//ANDY CULLEN
+//DUE DATE: 11/12/15
+//ASSIGNMENT 4: Interfaces, Stacks, Queues, Generics, and Merge Sort. Project uses Assignment 3 solution.
+
+//JANITORDROID CLASS
+
+//THE JANITORDROID CLASS CALCULATES THE TOTAL COST OF A JANITOR DROID BY ADDING ADDITIONAL COST FOR ADDED FEATURES
+//IT INHERITS FROM THE UTILITY CLASS
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
